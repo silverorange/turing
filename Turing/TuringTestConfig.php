@@ -105,6 +105,11 @@ class TuringTestConfig
 
 		if (strpos($config['base_href'], '%s') === false) {
 			$this->base_href = $config['base_href'];
+		} elseif ($config['instance'] == '') {
+			$this->base_href = sprintf(
+				$config['base_href'],
+				$config['working_dir']
+			);
 		} else {
 			$this->base_href = sprintf(
 				$config['base_href'],

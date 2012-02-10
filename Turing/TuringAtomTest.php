@@ -7,7 +7,7 @@ require_once 'PHPUnit/Framework/TestCase.php';
  * @package   Turing
  * @copyright 2012 silverorange
  */
-abstract class TuringAtomTestCase extends PHPUnit_Framework_TestCase
+abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 {
 	// {{{ protected properties
 

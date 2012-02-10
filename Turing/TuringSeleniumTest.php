@@ -8,7 +8,7 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
  * @package   Turing
  * @copyright 2012 silverorange
  */
-abstract class TuringSeleniumTestCase
+abstract class TuringSeleniumTest
 	extends PHPUnit_Extensions_SeleniumTestCase
 {
 	// {{{ protected properties
@@ -66,7 +66,7 @@ abstract class TuringSeleniumTestCase
 
 	protected function getConfig()
 	{
-		return new TestConfig(
+		return new TuringTestConfig(
 			$this,
 			$this->getConfigFilename()
 		);
