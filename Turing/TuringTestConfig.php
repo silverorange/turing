@@ -21,6 +21,11 @@ class TuringTestConfig
 	/**
 	 * @var string
 	 */
+	protected $domain = '';
+
+	/**
+	 * @var string
+	 */
 	protected $filename = '';
 
 	/**
@@ -76,6 +81,14 @@ class TuringTestConfig
 	}
 
 	// }}}
+	// {{{ public function getDomain()
+
+	public function getDomain()
+	{
+		return $this->domain;
+	}
+
+	// }}}
 	// {{{ protected function loadConfig()
 
 	protected function loadConfig()
@@ -93,7 +106,6 @@ class TuringTestConfig
 		$config = $GLOBALS['FunctionalTest_Config'];
 
 		if (   !isset($config['working_dir'])
-			|| !isset($config['instance'])
 			|| !isset($config['base_href'])
 		) {
 			$this->test->markTestSkipped(
@@ -101,11 +113,17 @@ class TuringTestConfig
 			);
 		}
 
-		$this->instance = $config['instance'];
+		if (isset($config['instance'])) {
+			$this->instance = $config['instance'];
+		}
+
+		if (isset($config['domain'])) {
+			$this->domain = $config['domain'];
+		}
 
 		if (strpos($config['base_href'], '%s') === false) {
 			$this->base_href = $config['base_href'];
-		} elseif ($config['instance'] == '') {
+		} elseif ($this->instance == '') {
 			$this->base_href = sprintf(
 				$config['base_href'],
 				$config['working_dir']
@@ -113,7 +131,7 @@ class TuringTestConfig
 		} else {
 			$this->base_href = sprintf(
 				$config['base_href'],
-				$config['instance'],
+				$this->instance,
 				$config['working_dir']
 			);
 		}
