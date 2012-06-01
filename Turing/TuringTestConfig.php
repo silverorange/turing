@@ -29,6 +29,11 @@ class TuringTestConfig
 	protected $filename = '';
 
 	/**
+	 * @var boolean
+	 */
+	protected $set_error_level = true;
+
+	/**
 	 * @var PHPUnit_Framework_TestCase
 	 */
 	protected $test = null;
@@ -135,6 +140,10 @@ class TuringTestConfig
 				$config['working_dir']
 			);
 		}
+
+		if (isset($config['set_error_level'])) {
+			$this->set_error_level = $config['set_error_level'];
+		}
 	}
 
 	// }}}
@@ -142,7 +151,9 @@ class TuringTestConfig
 
 	protected function setErrorLevel()
 	{
-		$this->old_error_level = error_reporting(E_ALL | E_STRICT);
+		if ($this->set_error_level) {
+			$this->old_error_level = error_reporting(E_ALL | E_STRICT);
+		}
 	}
 
 	// }}}
@@ -150,7 +161,9 @@ class TuringTestConfig
 
 	protected function restoreErrorLevel()
 	{
-		error_reporting($this->old_error_level);
+		if ($this->set_error_level) {
+			error_reporting($this->old_error_level);
+		}
 	}
 
 	// }}}
