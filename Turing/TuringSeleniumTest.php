@@ -128,6 +128,24 @@ abstract class TuringSeleniumTest
 	}
 
 	// }}}
+	// {{{ protected function assertLocation()
+
+	protected function assertLocationEndsWith($location, $message)
+	{
+		$exp = preg_quote($location, '!');
+		$exp = '!'.$location.'(\?.*)?$!';
+
+		$this->assertEquals(
+			1,
+			preg_match(
+				$exp,
+				$this->getLocation()
+			),
+			$message
+		);
+	}
+
+	// }}}
 
 	// shared test actions
 	// {{{ protected function selectSwatDateEntry()
