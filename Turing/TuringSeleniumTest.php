@@ -135,12 +135,9 @@ abstract class TuringSeleniumTest
 		$exp = preg_quote($location, '!');
 		$exp = '!'.$location.'(\?.*)?$!';
 
-		$this->assertEquals(
-			1,
-			preg_match(
-				$exp,
-				$this->getLocation()
-			),
+		$this->assertRegExp(
+			$exp,
+			$this->getLocation(),
 			$message
 		);
 	}
