@@ -128,7 +128,7 @@ abstract class TuringSeleniumTest
 	}
 
 	// }}}
-	// {{{ protected function assertLocation()
+	// {{{ protected function assertLocationEndsWith()
 
 	protected function assertLocationEndsWith($location, $message)
 	{
