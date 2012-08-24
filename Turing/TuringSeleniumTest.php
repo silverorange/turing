@@ -28,16 +28,6 @@ abstract class TuringSeleniumTest
 	) {
 		parent::__construct($name, $data, $data_name);
 		$this->config = $this->getConfig();
-
-		// Get the screenshot info from the config
-		if ($this->config->getScreenshotPath() != '' &&
-			$this->config->getScreenshotHref() != '') {
-
-			$this->screenshotPath = $this->config->getScreenshotPath();
-			$this->screenshotUrl = $this->config->getScreenshotHref();
-
-			$this->captureScreenshotOnFailure = TRUE;
-		}
 	}
 
 	// }}}
@@ -56,6 +46,15 @@ abstract class TuringSeleniumTest
 		parent::setUp();
 
 		$this->config->setUp();
+
+		if ($this->config->getScreenshotPath() != '' &&
+			$this->config->getScreenshotUrl() != '') {
+
+			$this->screenshotPath = $this->config->getScreenshotPath();
+			$this->screenshotUrl = $this->config->getScreenshotUrl();
+
+			$this->captureScreenshotOnFailure = TRUE;
+		}
 
 		$this->setBrowser('*chrome');
 		$this->setBrowserUrl($this->config->getBaseHref());
