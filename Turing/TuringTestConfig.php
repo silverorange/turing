@@ -29,6 +29,16 @@ class TuringTestConfig
 	protected $filename = '';
 
 	/**
+	 * @var string
+	 */
+	protected $screenshot_path = '';
+
+	/**
+	 * @var string
+	 */
+	protected $screenshot_url = '';
+
+	/**
 	 * @var PHPUnit_Framework_TestCase
 	 */
 	protected $test = null;
@@ -82,6 +92,22 @@ class TuringTestConfig
 	}
 
 	// }}}
+	// {{{ public function getScreenshotPath()
+
+	public function getScreenshotPath()
+	{
+		return $this->screenshot_path;
+	}
+
+	// }}}
+	// {{{ public function getScreenshotUrl()
+
+	public function getScreenshotUrl()
+	{
+		return $this->screenshot_url;
+	}
+
+	// }}}
 	// {{{ protected function loadConfig()
 
 	protected function loadConfig()
@@ -127,6 +153,14 @@ class TuringTestConfig
 				$this->instance,
 				$config['working_dir']
 			);
+		}
+
+		if (isset($config['screenshot_path'])) {
+			$this->screenshot_path = $config['screenshot_path'];
+		}
+
+		if (isset($config['screenshot_url'])) {
+			$this->screenshot_url = $config['screenshot_url'];
 		}
 	}
 
