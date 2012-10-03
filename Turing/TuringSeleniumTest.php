@@ -53,7 +53,7 @@ abstract class TuringSeleniumTest
 			$this->screenshotPath = $this->config->getScreenshotPath();
 			$this->screenshotUrl = $this->config->getScreenshotUrl();
 
-			$this->captureScreenshotOnFailure = TRUE;
+			$this->captureScreenshotOnFailure = true;
 		}
 
 		$this->setBrowser('*chrome');
