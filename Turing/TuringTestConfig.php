@@ -2,7 +2,7 @@
 
 /**
  * @package   Turing
- * @copyright 2012 silverorange
+ * @copyright 2012-2013 silverorange
  */
 class TuringTestConfig
 {
@@ -37,6 +37,16 @@ class TuringTestConfig
 	 * @var string
 	 */
 	protected $screenshot_url = '';
+
+	/**
+	 * @var string
+	 */
+	protected $selenium_host = 'localhost';
+
+	/**
+	 * @var integer
+	 */
+	protected $selenium_port = 4444;
 
 	/**
 	 * @var PHPUnit_Framework_TestCase
@@ -108,6 +118,22 @@ class TuringTestConfig
 	}
 
 	// }}}
+	// {{{ public function getSeleniumHost()
+
+	public function getSeleniumHost()
+	{
+		return $this->selenium_host;
+	}
+
+	// }}}
+	// {{{ public function getSeleniumPort()
+
+	public function getSeleniumPort()
+	{
+		return $this->selenium_port;
+	}
+
+	// }}}
 	// {{{ protected function loadConfig()
 
 	protected function loadConfig()
@@ -161,6 +187,14 @@ class TuringTestConfig
 
 		if (isset($config['screenshot_url'])) {
 			$this->screenshot_url = $config['screenshot_url'];
+		}
+
+		if (isset($config['selenium_host'])) {
+			$this->selenium_host = $config['selenium_host'];
+		}
+
+		if (isset($config['selenium_port'])) {
+			$this->selenium_port = (integer)$config['selenium_port'];
 		}
 	}
 

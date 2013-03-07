@@ -6,7 +6,7 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
 
 /**
  * @package   Turing
- * @copyright 2012 silverorange
+ * @copyright 2012-2013 silverorange
  */
 abstract class TuringSeleniumTest
 	extends PHPUnit_Extensions_SeleniumTestCase
@@ -56,6 +56,8 @@ abstract class TuringSeleniumTest
 			$this->captureScreenshotOnFailure = true;
 		}
 
+		$this->setHost($this->config->getSeleniumHost());
+		$this->setPort($this->config->getSeleniumPort());
 		$this->setBrowser('*chrome');
 		$this->setBrowserUrl($this->config->getBaseHref());
 		$this->start();
