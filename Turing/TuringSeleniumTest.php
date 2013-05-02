@@ -97,6 +97,20 @@ abstract class TuringSeleniumTest
 	{
 		$this->assertNoExceptions();
 		$this->assertNoXDebugErrors();
+		$this->assertNoLESSErrors();
+	}
+
+	// }}}
+	// {{{ protected function assertNoLESSErrors()
+
+	protected function assertNoLESSErrors()
+	{
+		$this->assertFalse(
+			$this->isElementPresent(
+				'xpath=//div[@class=\'less-error-message\']'
+			),
+			'One or more LESS CSS errors are present on the page.'
+		);
 	}
 
 	// }}}
