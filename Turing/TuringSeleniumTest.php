@@ -170,6 +170,40 @@ abstract class TuringSeleniumTest
 	// }}}
 
 	// shared test actions
+	// {{{ protected function waitForContainerTextToAppear()
+
+	protected function waitForContainerTextToAppear(
+		$container_id, $text, $timeout = 5000)
+	{
+		$this->waitForContainerText($container_id, $text, $timeout);
+
+		$this->assertTrue(
+			$this->isTextPresent($text),
+			sprintf(
+				'Text not found when it should appear: %s',
+				$text
+			)
+		);
+	}
+
+	// }}}
+	// {{{ protected function waitForContainerTextToDisappear()
+
+	protected function waitForContainerTextToDisappear(
+		$container_id, $text, $timeout = 5000)
+	{
+		$this->waitForContainerText($container_id, $text, $timeout, true);
+
+		$this->assertFalse(
+			$this->isTextPresent($text),
+			sprintf(
+				'Text found when it should disappear: %s',
+				$text
+			)
+		);
+	}
+
+	// }}}
 	// {{{ protected function selectSwatDateEntry()
 
 	protected function selectSwatDateEntry($id, SwatDate $date)
@@ -256,6 +290,42 @@ abstract class TuringSeleniumTest
 		if ($this->isElementPresent($day_select)) {
 			$day_index = $day - intval($start_day) + 1;
 			$this->select($day_select, 'index='.$day_index);
+		}
+	}
+
+	// }}}
+	// {{{ private function waitForContainerText()
+
+	private function waitForContainerText(
+		$container_id, $text, $timeout = 5000, $inverse = false)
+	{
+		$this->waitForCondition(
+			sprintf(
+				'var container = window.document.getElementById(%s);
+				(container && container.innerHTML.indexOf(%s) %s -1);',
+				SwatString::quoteJavascriptString($container_id),
+				SwatString::quoteJavascriptString($text),
+				($inverse) ? '===' : '>'
+			),
+			3000
+		);
+
+		if ($inverse) {
+			$this->assertFalse(
+				$this->isTextPresent($text),
+				sprintf(
+					'Text is found when it shouldn’t be: %s',
+					$text
+				)
+			);
+		} else {
+			$this->assertTrue(
+				$this->isTextPresent($text),
+				sprintf(
+					'Text not found: %s',
+					$text
+				)
+			);
 		}
 	}
 
