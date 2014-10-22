@@ -302,7 +302,7 @@ abstract class TuringSeleniumTest
 		$this->waitForCondition(
 			sprintf(
 				'var container = window.document.getElementById(%s);
-				(container && container.innerHTML.indexOf(%s) %s -1);',
+				(container && container.textContent.indexOf(%s) %s -1);',
 				SwatString::quoteJavascriptString($container_id),
 				SwatString::quoteJavascriptString($text),
 				($inverse) ? '===' : '>'
