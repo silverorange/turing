@@ -309,24 +309,6 @@ abstract class TuringSeleniumTest
 			),
 			3000
 		);
-
-		if ($inverse) {
-			$this->assertFalse(
-				$this->isTextPresent($text),
-				sprintf(
-					'Text is found when it shouldn’t be: %s',
-					$text
-				)
-			);
-		} else {
-			$this->assertTrue(
-				$this->isTextPresent($text),
-				sprintf(
-					'Text not found: %s',
-					$text
-				)
-			);
-		}
 	}
 
 	// }}}
