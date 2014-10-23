@@ -307,7 +307,7 @@ abstract class TuringSeleniumTest
 				SwatString::quoteJavascriptString($text),
 				($inverse) ? '===' : '>'
 			),
-			3000
+			$timeout
 		);
 	}
 
