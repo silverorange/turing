@@ -6,7 +6,7 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
 
 /**
  * @package   Turing
- * @copyright 2012-2013 silverorange
+ * @copyright 2012-2015 silverorange
  */
 abstract class TuringSeleniumTest
 	extends PHPUnit_Extensions_SeleniumTestCase
