@@ -5,7 +5,7 @@ require_once 'PHPUnit/Framework/TestCase.php';
 
 /**
  * @package   Turing
- * @copyright 2012 silverorange
+ * @copyright 2012-2015 silverorange
  */
 abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 {
