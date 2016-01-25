@@ -2,7 +2,7 @@
 
 /**
  * @package   Turing
- * @copyright 2012-2015 silverorange
+ * @copyright 2012-2016 silverorange
  */
 class TuringTestConfig
 {
