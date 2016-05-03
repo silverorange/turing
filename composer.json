@@ -24,12 +24,11 @@
 		"ext-mbstring": "*",
 		"phpunit/phpunit": "^3.7.0",
 		"phpunit/phpunit-selenium": "^1.4.2",
-		"silverorange/silverorange_autoloader": "*",
 		"silverorange/site": "^2.1.0",
 		"silverorange/swat": "^2.2.0"
 	},
 	"autoload": {
-		"files": [ "autoload.php" ]
+		"classmap": [ "Turing/" ]
 	},
 	"include-path": [
 		"./"
