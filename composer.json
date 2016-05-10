@@ -22,8 +22,8 @@
 	"require": {
 		"php": ">=5.2.1",
 		"ext-mbstring": "*",
-		"phpunit/phpunit": "^3.7.0",
-		"phpunit/phpunit-selenium": "^1.4.2",
+		"facebook/webdriver": "^1.1.1",
+		"phpunit/phpunit": "^5.3.0",
 		"silverorange/site": "^2.1.0",
 		"silverorange/swat": "^2.2.0"
 	},
