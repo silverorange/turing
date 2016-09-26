@@ -24,7 +24,7 @@
 		"ext-mbstring": "*",
 		"facebook/webdriver": "^1.1.1",
 		"phpunit/phpunit": "^5.3.0",
-		"silverorange/site": "^3.0.0",
+		"silverorange/site": "^4.0.0",
 		"silverorange/swat": "^2.2.0"
 	},
 	"autoload": {
