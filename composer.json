@@ -29,8 +29,5 @@
 	},
 	"autoload": {
 		"classmap": [ "Turing/" ]
-	},
-	"include-path": [
-		"./"
-	]
+	}
 }
