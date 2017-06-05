@@ -2,7 +2,7 @@ Turing
 ======
 Functional test framework for silverorange websites.
 
-Turing provides base PHPUnit test cases for testing Atom feeds (wit libxml) and
+Turing provides base PHPUnit test cases for testing Atom feeds (with libxml) and
 websites (via Selenium).
 
 A test configuration framework is also provided.
