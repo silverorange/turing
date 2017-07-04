@@ -19,7 +19,7 @@ pipeline {
                     --encoding=utf-8 \
                     --warning-severity=0 \
                     --extensions=php \
-                    $(git diff --diff-filter=acrm --name-only $master_sha...$newest_sha)
+                    $(git diff --diff-filter=ACRM --name-only $master_sha...$newest_sha)
                 '''
             }
         }
