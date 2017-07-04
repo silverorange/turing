@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     master_sha=$(git rev-parse origin/master)
-                    newest_sha=$(git rev-parse head)
+                    newest_sha=$(git rev-parse HEAD)
                     ./vendor/bin/phpcs \
                     --standard=silverorangetransitional \
                     --tab-width=4 \
