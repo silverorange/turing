@@ -24,8 +24,8 @@
 		"ext-mbstring": "*",
 		"phpunit/phpunit": "^4.8.35",
 		"phpunit/phpunit-selenium": "^1.4.2",
-		"silverorange/site": "^4.0.0",
-		"silverorange/swat": "^2.2.0"
+		"silverorange/site": "^5.0.0",
+		"silverorange/swat": "^3.0.0"
 	},
 	"autoload": {
 		"classmap": [ "Turing/" ]
