@@ -23,7 +23,6 @@
 		"php": ">=5.2.1",
 		"ext-mbstring": "*",
 		"phpunit/phpunit": "^5.7.0",
-		"phpunit/phpunit-selenium": "^3.0.0",
 		"silverorange/site": "^5.0.0",
 		"silverorange/swat": "^3.0.0"
 	},
