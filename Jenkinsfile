@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('install composer dependencies') {
             steps {
+                sh 'rm -rf composer.lock vendor/'
                 sh 'composer install'
-                sh 'composer update'
             }
         }
 
