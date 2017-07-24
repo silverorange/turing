@@ -87,7 +87,7 @@ abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 
 		$this->xpath = new DOMXPath($this->document);
 		$this->xpath->registerNamespace('atom', 'http://www.w3.org/2005/Atom');
-		$this->xpath->registerNamespace('html','http://www.w3.org/1999/xhtml');
+		$this->xpath->registerNamespace('html', 'http://www.w3.org/1999/xhtml');
 	}
 
 	// }}}
@@ -122,7 +122,7 @@ abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 
 		$this->xpath = new DOMXPath($this->document);
 		$this->xpath->registerNamespace('atom', 'http://www.w3.org/2005/Atom');
-		$this->xpath->registerNamespace('html','http://www.w3.org/1999/xhtml');
+		$this->xpath->registerNamespace('html', 'http://www.w3.org/1999/xhtml');
 	}
 
 	// }}}
@@ -157,7 +157,7 @@ abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 
 	protected function assertNoExceptions()
 	{
-		$list= $this->xpath->query("//html:div[@class='swat-exception']");
+		$list = $this->xpath->query("//html:div[@class='swat-exception']");
 		$this->assertEquals(
 			0,
 			$list->length,
@@ -183,7 +183,7 @@ abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 
 	protected function assertFeedElementsPresent()
 	{
-		$list= $this->xpath->query("/atom:feed/atom:generator");
+		$list = $this->xpath->query("/atom:feed/atom:generator");
 		$this->assertEquals(
 			1,
 			$list->length,
@@ -231,7 +231,7 @@ abstract class TuringAtomTest extends PHPUnit_Framework_TestCase
 
 	protected function assertEntryElementsPresent()
 	{
-		$list= $this->xpath->query("/atom:feed/atom:entry");
+		$list = $this->xpath->query("/atom:feed/atom:entry");
 		$this->assertNotEquals(
 			0,
 			$list->length,

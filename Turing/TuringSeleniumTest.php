@@ -8,8 +8,8 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
  * @package   Turing
  * @copyright 2012-2016 silverorange
  */
-abstract class TuringSeleniumTest
-	extends PHPUnit_Extensions_SeleniumTestCase
+abstract class TuringSeleniumTest extends
+	PHPUnit_Extensions_SeleniumTestCase
 {
 	// {{{ protected properties
 
@@ -173,8 +173,10 @@ abstract class TuringSeleniumTest
 	// {{{ protected function waitForContainerTextToAppear()
 
 	protected function waitForContainerTextToAppear(
-		$container_id, $text, $timeout = 5000)
-	{
+		$container_id,
+		$text,
+		$timeout = 5000
+	) {
 		$this->waitForContainerText($container_id, $text, $timeout);
 
 		$this->assertTrue(
@@ -190,8 +192,10 @@ abstract class TuringSeleniumTest
 	// {{{ protected function waitForContainerTextToDisappear()
 
 	protected function waitForContainerTextToDisappear(
-		$container_id, $text, $timeout = 5000)
-	{
+		$container_id,
+		$text,
+		$timeout = 5000
+	) {
 		$this->waitForContainerText($container_id, $text, $timeout, true);
 
 		$this->assertFalse(
@@ -297,8 +301,11 @@ abstract class TuringSeleniumTest
 	// {{{ private function waitForContainerText()
 
 	private function waitForContainerText(
-		$container_id, $text, $timeout = 5000, $inverse = false)
-	{
+		$container_id,
+		$text,
+		$timeout = 5000,
+		$inverse = false
+	) {
 		$this->waitForCondition(
 			sprintf(
 				'var container = window.document.getElementById(%s);
