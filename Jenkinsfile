@@ -14,7 +14,7 @@ pipeline {
                     master_sha=$(git rev-parse origin/master)
                     newest_sha=$(git rev-parse HEAD)
                     ./vendor/bin/phpcs \
-                    --standard=silverorangetransitional \
+                    --standard=SilverorangeTransitional \
                     --tab-width=4 \
                     --encoding=utf-8 \
                     --warning-severity=0 \
