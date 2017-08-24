@@ -90,18 +90,6 @@ abstract class AbstractTestCase extends StewardAbstractTestCase
 		);
 	}
 
-	protected function assertElementExists(WebDriverBy $by, $message)
-	{
-		$elements = $this->wd->findElements($by);
-		$this->assertNotEmpty($elements, $message);
-	}
-
-	protected function assertElementDoesNotExist(WebDriverBy $by, $message)
-	{
-		$elements = $this->wd->findElements($by);
-		$this->assertEmpty($elements, $message);
-	}
-
 	protected function assertNoTimeout(callable $action, $message)
 	{
 		$success = true;
@@ -135,21 +123,6 @@ abstract class AbstractTestCase extends StewardAbstractTestCase
 		);
 	}
 
-	protected function clearFields(array $fieldsToClear)
-	{
-		foreach ($fieldsToClear as $fieldBy) {
-			$this->wd->findElement($fieldBy)->clear();
-		}
-	}
-
-	protected function getBeforePseudoElementContent(WebDriverElement $element)
-	{
-		return $this->wd->executeScript(
-			"return window.getComputedStyle(arguments[0], '::before').getPropertyValue('content');",
-			[$element]
-		);
-	}
-
 	protected function setBrowserSizeToMobile()
 	{
 		$this->wd->manage()->window()->setSize(
@@ -168,7 +141,6 @@ abstract class AbstractTestCase extends StewardAbstractTestCase
 	{
 		$this->wd->navigate()->refresh();
 	}
-
 }
 
 ?>
