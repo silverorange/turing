@@ -141,6 +141,7 @@ abstract class AbstractTestCase extends StewardAbstractTestCase
 	{
 		$this->wd->navigate()->refresh();
 	}
+
 }
 
 ?>
