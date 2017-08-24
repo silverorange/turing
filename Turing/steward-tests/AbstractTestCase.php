@@ -24,7 +24,9 @@ abstract class AbstractTestCase extends StewardAbstractTestCase
 
 	public function loadURL($url)
 	{
-		return $this->wd->get(Utils\URL::normalize(self::$baseUrl, $url));
+		return preg_match('/https?:\/\//', $url) === 0
+			? $this->wd->get(Utils\URL::normalize(self::$baseUrl, $url))
+			: $this->wd->get($url);
 	}
 
 	public function setUp()
