@@ -38,7 +38,8 @@
 		"ext-mbstring": "*",
 		"phpunit/phpunit": "^5.7.0",
 		"silverorange/site": "^5.0.0",
-		"silverorange/swat": "^3.0.0"
+		"silverorange/swat": "^3.0.0",
+		"lmc/steward": "^2.1.0"
 	},
 	"require-dev": {
 		"silverorange/coding-standard": "^0.6.0"
