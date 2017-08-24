@@ -49,6 +49,9 @@
 		"post-update-cmd": "./vendor/bin/phpcs --config-set installed_paths vendor/silverorange/coding-standard/src"
 	},
 	"autoload": {
-		"classmap": [ "Turing/" ]
+		"classmap": [ "Turing/" ],
+		"psr-4": {
+			"Silverorange\\Turing\\": "Turing/steward"
+		}
 	}
 }
