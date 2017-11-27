@@ -34,14 +34,6 @@ abstract class AbstractTest extends StewardAbstractTestCase
     protected $config = null;
 
     // }}}
-
-    public function loadURL($url)
-    {
-        return preg_match('/https?:\/\//', $url) === 0
-            ? $this->wd->get(Utils\URL::normalize(self::$baseUrl, $url))
-            : $this->wd->get($url);
-    }
-
     // {{{ public function setUp()
 
     public function setUp()
@@ -86,6 +78,28 @@ abstract class AbstractTest extends StewardAbstractTestCase
         }
 
         return new ConfigEnvironment($environmentData);
+    }
+
+    // }}}
+    // {{{ protected function loadURL()
+
+    protected function loadURL($url)
+    {
+        $this->wd->get($this->getNormalizedURL($url));
+    }
+
+    // }}}
+    // {{{ protected function getNormalizedURL()
+
+    protected function getNormalizedURL($url)
+    {
+        try {
+            $url = Uri\create($url);
+        } catch (UriException $e) {
+            $path = new HierarchicalPath($url);
+            $basePath = new HierarchicalPath($this->baseURL->getPath());
+            $url = $this->baseURL->withPath((string)$basePath->append($path));
+        }
     }
 
     // }}}
