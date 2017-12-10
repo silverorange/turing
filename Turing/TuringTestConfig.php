@@ -166,7 +166,7 @@ class TuringTestConfig
 			$this->domain = $config['domain'];
 		}
 
-		if (strpos($config['base_href'], '%s') === false) {
+		if (mb_strpos($config['base_href'], '%s') === false) {
 			$this->base_href = $config['base_href'];
 		} elseif ($this->instance == '') {
 			$this->base_href = sprintf(
