@@ -25,6 +25,7 @@ class Message extends AbstractComponent
 
     public function getSecondaryContentBulletPoint($bulletNumber)
     {
+        $bulletNumber = intval($bulletNumber);
         $xpath = "//div[@class='swat-message-secondary-content']/ul/li[" .
             $bulletNumber . "]";
 
