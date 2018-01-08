@@ -27,7 +27,7 @@ abstract class AbstractTest extends StewardAbstractTestCase
     protected $mobileDimension = null;
 
     /**
-     * @var League\Uri
+     * @var League\Uri\Interfaces\Uri
      */
     protected $baseURL = null;
 

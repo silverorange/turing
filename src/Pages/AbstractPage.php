@@ -5,7 +5,7 @@ namespace Silverorange\Turing\Pages;
 use Facebook\WebDriver\WebDriver;
 use Silverorange\Turing\WebDriver\Context;
 use Silverorange\Turing\WebDriver\ContextSugarTrait;
-use League\Uri;
+use League\Uri\Interfaces\Uri as UriInterface;
 
 /**
  * @package   Turing
@@ -29,14 +29,14 @@ abstract class AbstractPage
     protected $wd = null;
 
     /**
-     * @var League\Uri
+     * @var League\Uri\Interfaces\Uri
      */
     protected $url = null;
 
     // }}}
     // {{{ public function __construct()
 
-    public function __construct(WebDriver $wd, Uri $url)
+    public function __construct(WebDriver $wd, UriInterface $url)
     {
         $this->wd = $wd;
         $this->context = new Context($wd);

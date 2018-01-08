@@ -5,6 +5,7 @@ namespace Silverorange\Turing\Url;
 use League\Uri;
 use League\Uri\Components\HierarchicalPath;
 use League\Uri\Exception as UriException;
+use League\Uri\Interfaces\Uri as UriInterface;
 
 /**
  * @package   Turing
@@ -16,14 +17,14 @@ class Normalizer
     // {{{ protected properties
 
     /**
-     * @var string
+     * @var League\Uri\Interfaces\Uri
      */
-    protected $baseURL = '';
+    protected $baseURL = null;
 
     // }}}
     // {{{ public function __construct()
 
-    public function __construct($baseURL)
+    public function __construct(UriInterface $baseURL)
     {
         $this->baseURL = $baseURL;
     }
