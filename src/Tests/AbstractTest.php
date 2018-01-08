@@ -72,7 +72,10 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
         $environmentData = $config->get($environment);
         if ($environmentData === null) {
-            $this->warn('No config for "%s" was found. Using "development".', $environment);
+            $this->warn(
+                'No config for "%s" was found. Using "development".',
+                $environment
+            );
             $environmentData = $config->get('development');
         }
 
