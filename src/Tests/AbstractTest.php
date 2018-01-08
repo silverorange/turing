@@ -67,7 +67,7 @@ abstract class AbstractTest extends StewardAbstractTestCase
     protected function getConfig($environment)
     {
         $config = new ConfigDefaults(
-            $this->getProjectRoot() . 'tests/config.json'
+            $this->getProjectRoot() . '/tests/config.json'
         );
 
         $environmentData = $config->get($environment);
