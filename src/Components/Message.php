@@ -33,7 +33,7 @@ class Message extends AbstractComponent
         $this->findByXpath($xpath)->getText();
     }
 
-    public function getAllText()
+    public function getText()
     {
         return $this->getEl()->getText();
     }
