@@ -24,6 +24,11 @@ abstract class AbstractComponent
     protected $context = null;
 
     /**
+     * @var Facebook\WebDriver\WebDriver
+     */
+    protected $wd = null;
+
+    /**
      * @var Facebook\WebDriver\WebDriverElement
      */
     protected $el = null;
@@ -34,6 +39,7 @@ abstract class AbstractComponent
     public function __construct(WebDriver $wd, WebDriverElement $el)
     {
         $this->context = new Context($wd, $el);
+        $this->wd = $wd;
         $this->el = $el;
     }
 
