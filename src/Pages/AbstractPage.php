@@ -6,6 +6,7 @@ use Facebook\WebDriver\WebDriver;
 use Silverorange\Turing\WebDriver\Context;
 use Silverorange\Turing\WebDriver\ContextSugarTrait;
 use League\Uri\Interfaces\Uri as UriInterface;
+use League\Uri;
 
 /**
  * @package   Turing
@@ -36,11 +37,15 @@ abstract class AbstractPage
     // }}}
     // {{{ public function __construct()
 
-    public function __construct(WebDriver $wd, UriInterface $url)
+    public function __construct(WebDriver $wd, UriInterface $url = null)
     {
         $this->wd = $wd;
         $this->context = new Context($wd);
-        $this->url = $url;
+        if ($url instanceof UriInterface) {
+            $this->url = $url;
+        } else {
+            $this->url = $this->getURL();
+        }
     }
 
     // }}}
@@ -56,7 +61,7 @@ abstract class AbstractPage
 
     public function getURL()
     {
-        return $this->wd->getCurrentURL();
+        return Uri\create($this->wd->getCurrentURL());
     }
 
     // }}}
