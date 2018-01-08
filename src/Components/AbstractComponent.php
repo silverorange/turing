@@ -23,12 +23,26 @@ abstract class AbstractComponent
      */
     protected $context = null;
 
+    /**
+     * @var Facebook\WebDriver\WebDriverElement
+     */
+    protected $el = null;
+
     // }}}
     // {{{ public function __construct()
 
     public function __construct(WebDriver $wd, WebDriverElement $el)
     {
         $this->context = new Context($wd, $el);
+        $this->el = $el;
+    }
+
+    // }}}
+    // {{{ public function getEl()
+
+    public function getEl()
+    {
+        return $this->el;
     }
 
     // }}}
