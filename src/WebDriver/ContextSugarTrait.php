@@ -1,6 +1,6 @@
 <?php
 
-namespace Silverorange\WebDriver\Context;
+namespace Silverorange\Turing\WebDriver;
 
 use Facebook\WebDriver\WebDriverElement;
 
