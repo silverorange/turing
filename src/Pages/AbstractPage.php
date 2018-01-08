@@ -1,6 +1,6 @@
 <?php
 
-namespace Silverorange\Turing\Components;
+namespace Silverorange\Turing\Pages;
 
 use Facebook\WebDriver\WebDriver;
 use Silverorange\Turing\WebDriver\Context;
