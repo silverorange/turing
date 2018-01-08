@@ -5,6 +5,7 @@ namespace Silverorange\Turing\Components;
 use Facebook\WebDriver\WebDriver;
 use Silverorange\Turing\WebDriver\Context;
 use Silverorange\Turing\WebDriver\ContextSugarTrait;
+use Silverorange\Turing\Url\Normalizer;
 
 /**
  * @package   Turing
@@ -27,13 +28,19 @@ abstract class AbstractPage
      */
     protected $wd = null;
 
+    /**
+     * @var League\Uri
+     */
+    protected $url = null;
+
     // }}}
     // {{{ public function __construct()
 
-    public function __construct(WebDriver $wd)
+    public function __construct(WebDriver $wd, $url)
     {
         $this->wd = $wd;
         $this->context = new Context($wd);
+        $this->url = (new Normalizer())->getUrl($url);
     }
 
     // }}}
@@ -58,6 +65,14 @@ abstract class AbstractPage
     public function refresh()
     {
         $this->wd->navigate()->refresh();
+    }
+
+    // }}}
+    // {{{ public function load()
+
+    public function load()
+    {
+        $this->wd->get($this->url);
     }
 
     // }}}

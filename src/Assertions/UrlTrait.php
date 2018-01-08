@@ -2,6 +2,7 @@
 
 namespace Silverorange\Turing\Assertions;
 
+use Silverorange\Turing\Url\Normalizer;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\Exception\TimeOutException;
 use League\Uri;
@@ -18,7 +19,7 @@ trait UrlTrait
     protected function assertCurrentURLEquals($expectedURL, $message)
     {
         $currentURL = Uri\create($this->wd->getCurrentURL());
-        $expectedURL = $this->getNormalizedURL($expectedURL);
+        $expectedURL = (new Normalizer())->getUrl($expectedURL);
 
         $this->assertEquals(
             (string)$expectedURL,
@@ -32,8 +33,9 @@ trait UrlTrait
 
     protected function assertURLEquals($expectedURL, $actualURL, $message)
     {
-        $actualURL = $this->getNormalizedURL($actualURL);
-        $expectedURL = $this->getNormalizedURL($expectedURL);
+        $normalizer = new Normalizer()
+        $actualURL = $normalizer->getUrl($actualURL);
+        $expectedURL = $normalizer->getUrl($expectedURL);
 
         $this->assertEquals(
             (string)$expectedURL,
