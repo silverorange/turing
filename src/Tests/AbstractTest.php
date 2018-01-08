@@ -102,6 +102,8 @@ abstract class AbstractTest extends StewardAbstractTestCase
             $basePath = new HierarchicalPath($this->baseURL->getPath());
             $url = $this->baseURL->withPath((string)$basePath->append($path));
         }
+
+        return $url;
     }
 
     // }}}
