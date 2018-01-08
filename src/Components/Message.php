@@ -2,8 +2,6 @@
 
 namespace Silverorange\Turing\Components;
 
-use Facebook\WebDriver\WebDriverBy;
-
 /**
  * @package   Turing
  * @copyright 2017 silverorange
