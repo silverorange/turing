@@ -33,7 +33,7 @@ trait UrlTrait
 
     protected function assertURLEquals($expectedURL, $actualURL, $message)
     {
-        $normalizer = new Normalizer($this->baseURL)
+        $normalizer = new Normalizer($this->baseURL);
         $actualURL = $normalizer->getUrl($actualURL);
         $expectedURL = $normalizer->getUrl($expectedURL);
 
