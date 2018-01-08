@@ -19,7 +19,7 @@ trait UrlTrait
     protected function assertCurrentURLEquals($expectedURL, $message)
     {
         $currentURL = Uri\create($this->wd->getCurrentURL());
-        $expectedURL = (new Normalizer())->getUrl($expectedURL);
+        $expectedURL = (new Normalizer($this->baseURL))->getUrl($expectedURL);
 
         $this->assertEquals(
             (string)$expectedURL,
@@ -33,7 +33,7 @@ trait UrlTrait
 
     protected function assertURLEquals($expectedURL, $actualURL, $message)
     {
-        $normalizer = new Normalizer()
+        $normalizer = new Normalizer($this->baseURL)
         $actualURL = $normalizer->getUrl($actualURL);
         $expectedURL = $normalizer->getUrl($expectedURL);
 

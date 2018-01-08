@@ -87,7 +87,15 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
     protected function loadURL($url)
     {
-        $this->wd->get((new Normalizer())->getUrl($url));
+        $this->wd->get($this->getNormalizedUrl($url));
+    }
+
+    // }}}
+    // {{{ protected function getNormalizedUrl()
+
+    protected function getNormalizedUrl($url)
+    {
+        return (new Normalizer($this->baseURL))->getUrl($url);
     }
 
     // }}}

@@ -13,6 +13,22 @@ use League\Uri\Exception as UriException;
  */
 class Normalizer
 {
+    // {{{ protected properties
+
+    /**
+     * @var string
+     */
+    protected $baseURL = '';
+
+    // }}}
+    // {{{ public function __construct()
+
+    public function __construct($baseURL)
+    {
+        $this->baseURL = $baseURL;
+    }
+
+    // }}}
     // {{{ protected function getURL()
 
     public function getURL($url)
