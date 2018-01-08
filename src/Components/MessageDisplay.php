@@ -17,7 +17,7 @@ class MessageDisplay extends AbstractComponent
             function ($el) {
                 return new Message($this->wd, $el);
             },
-            $this->findMultipleByClassName('swat-message')
+            $this->findMultipleByClass('swat-message')
         );
     }
 }

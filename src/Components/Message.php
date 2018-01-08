@@ -14,14 +14,14 @@ class Message extends AbstractComponent
     public function getPrimaryContentText()
     {
         return $this
-            ->findByClassName('swat-message-primary-content')
+            ->findByClass('swat-message-primary-content')
             ->getText();
     }
 
     public function getSecondaryContentText()
     {
         return $this
-            ->findByClassName('swat-message-secondary-content')
+            ->findByClass('swat-message-secondary-content')
             ->getText();
     }
 
