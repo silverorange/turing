@@ -45,18 +45,4 @@ trait UrlTrait
     }
 
     // }}}
-    // {{{ protected function getNormalizedURL()
-
-    protected function getNormalizedURL($url)
-    {
-        try {
-            $url = Uri\create($url);
-        } catch (UriException $e) {
-            $path = new HierarchicalPath($url);
-            $basePath = new HierarchicalPath($this->baseURL->getPath());
-            $url = $this->baseURL->withPath((string)$basePath->append($path));
-        }
-    }
-
-    // }}}
 }
