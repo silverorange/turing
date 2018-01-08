@@ -5,8 +5,6 @@ namespace Silverorange\Turing\Assertions;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\Exception\TimeOutException;
 use League\Uri;
-use League\Uri\Exception as UriException;
-use League\Uri\Components\HierarchicalPath;
 
 /**
  * @package   Turing
