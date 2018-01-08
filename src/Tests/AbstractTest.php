@@ -10,6 +10,7 @@ use League\Uri\Components\HierarchicalPath;
 use League\Uri\Exception as UriException;
 use Silverorange\Turing\Config\Defaults as ConfigDefaults;
 use Silverorange\Turing\Config\Environment as ConfigEnvironment;
+use Silverorange\Turing\Url\Normalizer;
 
 /**
  * @package   Turing
