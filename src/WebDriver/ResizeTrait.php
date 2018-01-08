@@ -15,10 +15,7 @@ trait ResizeTrait
 
     protected function resizeToMobile()
     {
-        // TODO: pull values from config
-        $this->wd->manage()->window()->setSize(
-            new WebDriverDimension(self::$mobileBrowserWidth, self::$browserHeight)
-        );
+        $this->wd->manage()->window()->setSize($this->$mobileDimension);
     }
 
     // }}}
