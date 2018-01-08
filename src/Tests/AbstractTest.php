@@ -66,7 +66,9 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
     protected function getConfig($environment)
     {
-        $config = new ConfigDefaults('config.json');
+        $config = new ConfigDefaults(
+            $this->getProjectRoot() . 'tests/config.json'
+        );
 
         $environmentData = $config->get($environment);
         if ($environmentData === null) {
@@ -81,6 +83,14 @@ abstract class AbstractTest extends StewardAbstractTestCase
         }
 
         return new ConfigEnvironment($environmentData);
+    }
+
+    // }}}
+    // {{{ protected function getProjectRoot()
+
+    protected function getProjectRoot()
+    {
+        return dirname(dirname(dirname(dirname(dirname(__DIR__)))));
     }
 
     // }}}
