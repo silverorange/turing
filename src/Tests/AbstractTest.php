@@ -6,6 +6,7 @@ use Facebook\WebDriver\WebDriverDimension;
 use Lmc\Steward\ConfigProvider;
 use Lmc\Steward\Test\AbstractTestCase as StewardAbstractTestCase;
 use League\Uri;
+use League\Uri\Exception as UriException;
 use Silverorange\Turing\Config\Defaults as ConfigDefaults;
 use Silverorange\Turing\Config\Environment as ConfigEnvironment;
 
