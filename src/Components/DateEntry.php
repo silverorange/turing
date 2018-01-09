@@ -3,6 +3,7 @@
 namespace Silverorange\Turing\Components;
 
 use Facebook\WebDriver\WebDriverSelect;
+use Facebook\WebDriver\Exception\NoSuchElementException;
 
 /**
  * @package   Turing
@@ -46,8 +47,13 @@ class DateEntry extends AbstractComponent
             ->selectByVisibleText($date->format('Y'));
 
         if ($this->hasById($id . '_month')) {
-            (new WebDriverSelect($this->findById($id . '_month')))
-                ->selectByVisibleText($date->format('F'));
+            $month_select = new WebDriverSelect($this->findById($id . '_month'));
+            try {
+                $month_select->selectByVisibleText($date->format('F'));
+            } catch (NoSuchElementException $e) {
+                // try credit-card month formatting
+                $month_select->selectByVisibleText($date->format('m - F'));
+            }
         }
 
         if ($this->hasById($id . '_day')) {
