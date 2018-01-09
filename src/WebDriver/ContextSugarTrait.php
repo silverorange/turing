@@ -95,7 +95,7 @@ trait ContextSugarTrait
 
     protected function hasById($id)
     {
-        return $this->hasById($id);
+        return $this->context->hasById($id);
     }
 
     // }}}
