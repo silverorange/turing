@@ -128,7 +128,7 @@ trait ScreenshotTrait
         $taker = new Taker($this->wd);
         $screenshot = $taker->take($element, $padding);
 
-        $path = $this->getProjectRoot() . '/' . $this->config->get('screenshotPath');
+        $path = $this->getProjectRoot() . '/' . $this->config->get('screenshots.path');
         copy($screenshot, $path . '/' . $filename . '.png');
     }
 

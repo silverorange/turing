@@ -36,7 +36,12 @@ class Defaults extends Config
             'database' => [
                 'dsn' => '',
             ],
-            'screenshotPath' => 'tests/screenshots',
+            'screenshots' => [
+                'path' => 'tests/screenshots',
+            ],
+            'content' => [
+                'path' => 'tests/content',
+            ],
         ];
     }
 
