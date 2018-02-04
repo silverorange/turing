@@ -41,7 +41,17 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
     public function setUp()
     {
-        parent::setUp();
+        // Don't call parent method here because we want to skip the browser
+        // resize. Browser resizing causes issues in latest Selenium and
+        // Chromedriver versions. This also lets us use externally specified
+        // dimensions in headless Chrome mode.
+
+        $this->log(
+            'Starting execution of test ' .
+            get_called_class() . '::' . $this->getName()
+        );
+
+        $this->utils = new TestUtils($this);
 
         // Load environment-specific config values.
         $this->config = $this->getConfig(ConfigProvider::getInstance()->env);
