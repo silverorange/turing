@@ -24,8 +24,9 @@
         "ext-mbstring": "*",
         "phpunit/phpunit": "^5.7.0",
         "league/uri": "~5.0.0",
-        "hassankhan/config": "0.11.2",
-        "lmc/steward": "^2.3.1"
+        "lmc/steward": "^2.3.1",
+        "symfony/console": "^3.4.0",
+        "vlucas/phpdotenv": "^2.4.0"
     },
     "require-dev": {
         "silverorange/coding-standard": "^0.7.0",
@@ -36,6 +37,9 @@
         "post-install-cmd": "./vendor/bin/phpcs --config-set installed_paths vendor/silverorange/coding-standard/src",
         "post-update-cmd": "./vendor/bin/phpcs --config-set installed_paths vendor/silverorange/coding-standard/src"
     },
+    "bin": [
+        "bin/turing"
+    ],
     "autoload": {
         "psr-4": {
             "Silverorange\\Turing\\": "src"

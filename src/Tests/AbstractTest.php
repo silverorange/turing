@@ -31,11 +31,6 @@ abstract class AbstractTest extends StewardAbstractTestCase
      */
     protected $baseURL = null;
 
-    /**
-     * @var Silverorange\Turing\Config\Environment
-     */
-    protected $config = null;
-
     // }}}
     // {{{ public function setUp()
 
@@ -53,49 +48,19 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
         $this->utils = new TestUtils($this);
 
-        // Load environment-specific config values.
-        $this->config = $this->getConfig(ConfigProvider::getInstance()->env);
-
         // Create base URL.
-        $this->baseURL = Uri\create($this->config->get('baseURL'));
+        $this->baseURL = Uri\create(getenv('SELENIUM_URL'));
         $this->debug('Base URL set to "%s"', $this->baseURL);
 
         // Create mobile dimensions.
         $this->mobileDimension = new WebDriverDimension(
-            $this->config->get('mobile.width'),
-            $this->config->get('mobile.height')
+            getenv('SELENIUM_MOBILE_WIDTH') || 320,
+            getenv('SELENIUM_MOBILE_HEIGHT') || 583
         );
 
         if (ConfigProvider::getInstance()->env === 'production') {
             $this->warn('The tests are run against production, so be careful!');
         }
-    }
-
-    // }}}
-    // {{{ protected function getConfig()
-
-    protected function getConfig($environment)
-    {
-        $config = new ConfigDefaults(
-            $this->getProjectRoot() . '/tests/config.json'
-        );
-
-        $environmentData = $config->get($environment);
-        if ($environmentData === null) {
-            $this->warn(
-                'No config for "%s" was found. Using "development".',
-                $environment
-            );
-            $environmentData = $config->get('development');
-        }
-
-        // Support environment-specific overrides of config values.
-        $environmentBaseURL = getenv('SELENIUM_URL');
-        if ($environmentBaseURL !== false) {
-            $environmentData->set('baseURL', $environmentBaseURL);
-        }
-
-        return new ConfigEnvironment($environmentData);
     }
 
     // }}}
