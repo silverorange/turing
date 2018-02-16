@@ -30,9 +30,9 @@ use Dotenv\Dotenv;
  */
 abstract class Environment
 {
-    public static function load()
+    public static function load(): void
     {
-        $rootPath = return dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        $rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
         $filename = $rootPath . '/tests/.env';
 
         $dotenv = new Dotenv(__DIR__, $filename);

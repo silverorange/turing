@@ -2,7 +2,7 @@
 
 namespace Silverorange\Turing\Console\Command;
 
-use Lmc\Steward\Console\Command\RunCommand as StewardRunCommand;
+use Lmc\Steward\Console\Command\CleanCommand as StewardCleanCommand;
 use Lmc\Steward\Console\Configuration\ConfigResolver;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  * @package   Turing
  * @copyright 2018 silverorange
  */
-class RunCommand extends StewardRunCommand
+class CleanCommand extends StewardCleanCommand
 {
     // {{{ protected function resolveConfiguration()
 
