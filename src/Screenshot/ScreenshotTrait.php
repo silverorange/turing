@@ -128,10 +128,7 @@ trait ScreenshotTrait
         $taker = new Taker($this->wd);
         $screenshot = $taker->take($element, $padding);
 
-        $path = getenv('SCREENSHOTS_PATH');
-        if ($path === false) {
-            $path = 'tests/screenshots';
-        }
+        $path = getenv('SCREENSHOTS_PATH') ?: 'tests/screenshots';
         $path = $this->getProjectRoot() . '/' . $path;
         copy($screenshot, $path . '/' . $filename . '.png');
     }

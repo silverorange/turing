@@ -12,10 +12,7 @@ trait ContentTrait
 
     protected function getContent($filename)
     {
-        $path = getenv('CONTENT_PATH');
-        if ($path === false) {
-            $path = 'tests/content';
-        }
+        $path = getenv('CONTENT_PATH') ?: 'tests/content';
         return trim(file_get_contents($path . '/' . $filename));
     }
 
