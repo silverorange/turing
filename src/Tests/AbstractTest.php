@@ -3,6 +3,7 @@
 namespace Silverorange\Turing\Tests;
 
 use Facebook\WebDriver\WebDriverDimension;
+use Lmc\Steward\Component\TestUtils;
 use Lmc\Steward\ConfigProvider;
 use Lmc\Steward\Test\AbstractTestCase as StewardAbstractTestCase;
 use League\Uri;
