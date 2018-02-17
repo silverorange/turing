@@ -55,7 +55,8 @@ class CapabilitiesResolver implements CustomCapabilitiesResolverInterface
             }
 
             $chromeOptions->addArguments($arguments);
-            $capabilities->setCapability(ChromeOptions::CAPABILITY,
+            $capabilities->setCapability(
+                ChromeOptions::CAPABILITY,
                 $chromeOptions
             );
         }
