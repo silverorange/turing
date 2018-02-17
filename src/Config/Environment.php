@@ -33,9 +33,10 @@ abstract class Environment
     public static function load(): void
     {
         $rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
-        $filename = $rootPath . '/tests/.env';
+        $testsPath = $rootPath . '/tests';
 
-        $dotenv = new Dotenv(__DIR__, $filename);
+        $dotenv = new Dotenv($testsPath);
+        $dotenv->load();
 
         $dotenv->required('SELENIUM_URL')->notEmpty();
         $dotenv->required('SELENIUM_SERVER_URL')->notEmpty();
