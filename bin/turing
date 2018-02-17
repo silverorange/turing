@@ -5,16 +5,23 @@ namespace Silverorange\Turing;
 
 $autoloadPaths = [
     // Try to load autoloader if this is the root project.
-    __DIR__ . '/../vendor/autoload.php',
+    'root' => __DIR__ . '/../vendor/autoload.php',
 
     // Try to load an autoloader if this is installed as a library for
     // another root project.
-    __DIR__ . '/../../../autoload.php',
+    'dependency' => __DIR__ . '/../../../autoload.php',
 ];
 
-foreach ($autoloadPaths as $path) {
+foreach ($autoloadPaths as $type => $path) {
     if (file_exists($path)) {
         require_once $path;
+
+        if ($type === 'dependency') {
+            define('STEWARD_BASE_DIR', realpath(__DIR__ . '/../../../..'));
+        } else {
+            define('STEWARD_BASE_DIR', realpath(__DIR__ . '/..'));
+        }
+
         break;
     }
 }
@@ -28,12 +35,6 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
 Environment::load();
-
-//if ($installedAsDependency) {
-//    define('STEWARD_BASE_DIR', realpath(__DIR__ . '/../../../..'));
-//} else {
-    define('STEWARD_BASE_DIR', realpath(__DIR__ . '/..'));
-//}
 
 $dispatcher = new EventDispatcher();
 $application = new Application('Turing', '1.0.0');
