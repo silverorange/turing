@@ -44,8 +44,8 @@ class CapabilitiesResolver implements CustomCapabilitiesResolverInterface
         ) {
             $chrome_options = new ChromeOptions();
 
-            $width = (int)(getenv('SELENIUM_WIDTH') || 800);
-            $height = (int)(getenv('SELENIUM_HEIGHT') || 600);
+            $width = (int)(getenv('SELENIUM_WIDTH') ?: 800);
+            $height = (int)(getenv('SELENIUM_HEIGHT') ?: 600);
 
             // In headless Chrome 60+, window size cannot be changed run-time:
             // https://bugs.chromium.org/p/chromium/issues/detail?id=604324#c46

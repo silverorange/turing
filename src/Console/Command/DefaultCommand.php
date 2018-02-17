@@ -31,9 +31,9 @@ class DefaultCommand extends Command
     {
         $command = $this->getApplication()->find('run');
 
-        $browser = getenv('SELENIUM_BROWSER') || 'chrome';
-        $serverURL = getenv('SELENIUM_SERVER_URL') || 'http://localhost:4444';
-        $logsDir = getenv('STEWARD_LOGS_PATH') || 'tests/logs';
+        $browser = getenv('SELENIUM_BROWSER') ?: 'chrome';
+        $serverURL = getenv('SELENIUM_SERVER_URL') ?: 'http://localhost:4444';
+        $logsDir = getenv('STEWARD_LOGS_PATH') ?: 'tests/logs';
 
         $arguments = [
             'command' => 'run',

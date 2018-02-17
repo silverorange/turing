@@ -54,8 +54,8 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
         // Create mobile dimensions.
         $this->mobileDimension = new WebDriverDimension(
-            getenv('SELENIUM_MOBILE_WIDTH') || 320,
-            getenv('SELENIUM_MOBILE_HEIGHT') || 583
+            getenv('SELENIUM_MOBILE_WIDTH') ?: 320,
+            getenv('SELENIUM_MOBILE_HEIGHT') ?: 583
         );
 
         if (ConfigProvider::getInstance()->env === 'production') {
