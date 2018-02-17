@@ -36,7 +36,6 @@ class DefaultCommand extends Command
         $logsDir = getenv('STEWARD_LOGS_PATH') ?: 'tests/logs';
 
         $arguments = [
-            'command' => 'run',
             'environment' => 'test',
             'browser' => $browser,
             '--logs-dir' => $logsDir,

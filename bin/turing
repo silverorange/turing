@@ -53,5 +53,5 @@ $application->addCommands(
     ]
 );
 
-//$application->setDefaultCommand('default');
+$application->setDefaultCommand('default', true);
 $application->run();
