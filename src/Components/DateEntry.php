@@ -17,7 +17,7 @@ class DateEntry extends AbstractComponent
     /**
      * @var array
      */
-    protected static $month_map = array(
+    protected static $month_map = [
         'January'   => '01',
         'February'  => '02',
         'March'     => '03',
@@ -30,7 +30,7 @@ class DateEntry extends AbstractComponent
         'October'   => '10',
         'November'  => '11',
         'December'  => '12',
-    );
+    ];
 
     // }}}
     // {{{ public function setDate()
