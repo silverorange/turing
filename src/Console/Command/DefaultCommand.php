@@ -41,8 +41,11 @@ class DefaultCommand extends Command
             'browser' => $browser,
             '--logs-dir' => $logsDir,
             '--server-url' => $serverURL,
-            '--verbose' => '2',
         ];
+
+        // Can't pass verbosity as argument to sub-command. It's tied to the
+        // application.
+        $output->setVerbosity(OutputInterface::VERBOSITY_VERY_VERBOSE);
 
         $runInput = new ArrayInput($arguments);
         return $command->run($runInput, $output);
