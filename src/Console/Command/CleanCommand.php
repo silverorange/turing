@@ -23,10 +23,10 @@ class CleanCommand extends StewardCleanCommand
     {
         // Steward uses a steward.yml file for some config options. We override
         // it here so we can specify config options in the environment and so
-        // we can dynamically configure the capabilities resolver class. All
-        // properties except the capabilities resolver are already expressable
-        // via command options so we just include the capabilities resolver
-        // config here.
+        // we can dynamically configure the capabilities resolver class. We set
+        // the logs_dir here as well because when wrapping the run command the
+        // logs_dir doesn't get passed to the clean command. Clean is run from
+        // the event dispatcher.
 
         $configFileValues = [
             'capabilities_resolver' => 'Silverorange\Turing\Selenium\CapabilitiesResolver',
