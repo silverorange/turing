@@ -38,21 +38,25 @@ class CapabilitiesResolver implements CustomCapabilitiesResolverInterface
         StewardAbstractTestCase $test,
         DesiredCapabilities $capabilities
     ) {
-        // Run Chrome in headless mode
-        if ($this->config->browserName === WebDriverBrowserType::CHROME &&
-            getenv('SELENIUM_HEADLESS')
-        ) {
-            $chrome_options = new ChromeOptions();
+        if ($this->config->browserName === WebDriverBrowserType::CHROME) {
+            $chromeOptions = new ChromeOptions();
 
             $width = (int)(getenv('SELENIUM_WIDTH') ?: 800);
             $height = (int)(getenv('SELENIUM_HEIGHT') ?: 600);
 
             // In headless Chrome 60+, window size cannot be changed run-time:
             // https://bugs.chromium.org/p/chromium/issues/detail?id=604324#c46
-            $chrome_options->addArguments(['--headless', '--window-size=' . $width . ',' . $height ]);
-            $capabilities->setCapability(
-                ChromeOptions::CAPABILITY,
-                $chrome_options
+            $arguments = [
+                '--window-size=' . $width . ',' . $height,
+            ];
+
+            if (getenv('SELENIUM_HEADLESS')) {
+                $arguments[] = '--headless';
+            }
+
+            $chromeOptions->addArguments($arguments);
+            $capabilities->setCapability(ChromeOptions::CAPABILITY,
+                $chromeOptions
             );
         }
 
