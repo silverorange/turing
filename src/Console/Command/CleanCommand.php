@@ -30,6 +30,7 @@ class CleanCommand extends StewardCleanCommand
 
         $configFileValues = [
             'capabilities_resolver' => 'Silverorange\Turing\Selenium\CapabilitiesResolver',
+            'logs_dir' => getenv('STEWARD_LOGS_PATH') ?: 'tests/logs',
         ];
 
         $configResolver = new ConfigResolver(new OptionsResolver(), $this->getDefinition());
