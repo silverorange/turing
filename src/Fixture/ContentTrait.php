@@ -1,6 +1,7 @@
 <?php
 
 namespace Silverorange\Turing\Fixture;
+
 /**
  * @package   Turing
  * @copyright 2018 silverorange
