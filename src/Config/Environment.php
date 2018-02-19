@@ -22,7 +22,7 @@ use Dotenv\Dotenv;
  * - SELENIUM_MOBILE_WIDTH  - mobile browser width. 320 by default.
  * - SELENIUM_MOBILE_HEIGHT - mobile browser height. 583 by default.
  *
- * - STEWARD_LOGS_PATH   - Where test logs are stored. tests/logs by default.
+ * - STEWARD_LOGS_PATH     - Where test logs are stored. tests/logs by default.
  *
  * @package   Turing
  * @copyright 2017 silverorange
