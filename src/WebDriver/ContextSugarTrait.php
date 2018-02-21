@@ -63,7 +63,7 @@ trait ContextSugarTrait
 
     protected function hasByCss($cssSelector)
     {
-        return $this->hasByCss($cssSelector);
+        return $this->context->hasByCss($cssSelector);
     }
 
     // }}}
@@ -127,7 +127,7 @@ trait ContextSugarTrait
 
     protected function hasByName($name)
     {
-        return $this->hasByName($name);
+        return $this->context->hasByName($name);
     }
 
     // }}}
@@ -159,7 +159,7 @@ trait ContextSugarTrait
 
     protected function hasByLinkText($linkText)
     {
-        return $this->hasByLinkText($linkText);
+        return $this->context->hasByLinkText($linkText);
     }
 
     // }}}
@@ -191,7 +191,7 @@ trait ContextSugarTrait
 
     protected function hasByPartialLinkText($partialLinkText)
     {
-        return $this->hasByPartialLinkText($partialLinkText);
+        return $this->context->hasByPartialLinkText($partialLinkText);
     }
 
     // }}}
@@ -223,7 +223,7 @@ trait ContextSugarTrait
 
     protected function hasByTag($tagName)
     {
-        return $this->hasByTag($tagName);
+        return $this->context->hasByTag($tagName);
     }
 
     // }}}
@@ -256,7 +256,7 @@ trait ContextSugarTrait
 
     protected function hasByXpath($xpath)
     {
-        return $this->hasByXpath($xpath);
+        return $this->context->hasByXpath($xpath);
     }
 
     // }}}
