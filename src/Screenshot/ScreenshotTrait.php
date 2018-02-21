@@ -17,8 +17,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByClass($className),
-            $padding
+            $padding,
+            $this->findByClass($className)
         );
     }
 
@@ -29,8 +29,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByCss($cssSelector),
-            $padding
+            $padding,
+            $this->findByCss($cssSelector)
         );
     }
 
@@ -41,8 +41,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findById($id),
-            $padding
+            $padding,
+            $this->findById($id)
         );
     }
 
@@ -53,8 +53,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByName($name),
-            $padding
+            $padding,
+            $this->findByName($name)
         );
     }
 
@@ -65,8 +65,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByLinkText($linkText),
-            $padding
+            $padding,
+            $this->findByLinkText($linkText)
         );
     }
 
@@ -77,8 +77,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByPartialLinkText($partialLinkText),
-            $padding
+            $padding,
+            $this->findByPartialLinkText($partialLinkText)
         );
     }
 
@@ -89,8 +89,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByTag($tagName),
-            $padding
+            $padding,
+            $this->findByTag($tagName)
         );
     }
 
@@ -101,8 +101,8 @@ trait ScreenshotTrait
     {
         return $this->takeScreenshot(
             $filename,
-            $this->findByXpath($xpath),
-            $padding
+            $padding,
+            $this->findByXpath($xpath)
         );
     }
 
