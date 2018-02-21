@@ -16,6 +16,7 @@ class Context
 {
     use SyntaxSugarTrait;
     use PseudoElementTrait;
+    use HasElementTrait;
 
     // {{{ protected properties
 
@@ -75,14 +76,6 @@ class Context
     }
 
     // }}}
-    // {{{ public function hasByClass()
-
-    public function hasByClass($className)
-    {
-        return (count($this->findMultipleByClass($className)) > 0);
-    }
-
-    // }}}
     // {{{ public function findByCss()
 
     /**
@@ -109,14 +102,6 @@ class Context
     public function findMultipleByCss($cssSelector)
     {
         return $this->context->findElements(WebDriverBy::cssSelector($cssSelector));
-    }
-
-    // }}}
-    // {{{ public function hasByCss()
-
-    public function hasByCss($cssSelector)
-    {
-        return (count($this->findMultipleByCss($cssSelector)) > 0);
     }
 
     // }}}
@@ -149,14 +134,6 @@ class Context
     }
 
     // }}}
-    // {{{ public function hasById()
-
-    public function hasById($id)
-    {
-        return (count($this->findMultipleById($id)) > 0);
-    }
-
-    // }}}
     // {{{ public function findByName()
 
     /**
@@ -183,14 +160,6 @@ class Context
     public function findMultipleByName($name)
     {
         return $this->context->findElements(WebDriverBy::name($name));
-    }
-
-    // }}}
-    // {{{ public function hasByName()
-
-    public function hasByName($name)
-    {
-        return (count($this->findMultipleByName($name)) > 0);
     }
 
     // }}}
@@ -223,14 +192,6 @@ class Context
     }
 
     // }}}
-    // {{{ public function hasByLinkText()
-
-    public function hasByLinkText($linkText)
-    {
-        return (count($this->findMultipleByLinkText($linkText)) > 0);
-    }
-
-    // }}}
     // {{{ public function findByPartialLinkText()
 
     /**
@@ -257,14 +218,6 @@ class Context
     public function findMultipleByPartialLinkText($partialLinkText)
     {
         return $this->context->findElements(WebDriverBy::partialLinkText($partialLinkText));
-    }
-
-    // }}}
-    // {{{ public function hasByPartialLinkText()
-
-    public function hasByPartialLinkText($partialLinkText)
-    {
-        return (count($this->findMultipleByPartialLinkText($partialLinkText)) > 0);
     }
 
     // }}}
@@ -297,14 +250,6 @@ class Context
     }
 
     // }}}
-    // {{{ public function hasByTag()
-
-    public function hasByTag($tagName)
-    {
-        return (count($this->findMultipleByTag($tagName)) > 0);
-    }
-
-    // }}}
     // {{{ public function findByXpath()
 
     /**
@@ -331,14 +276,6 @@ class Context
     public function findMultipleByXpath($xpath)
     {
         return $this->context->findElements(WebDriverBy::xpath($xpath));
-    }
-
-    // }}}
-    // {{{ public function hasByXpath()
-
-    public function hasByXpath($xpath)
-    {
-        return (count($this->findMultipleByXpath($xpath)) > 0);
     }
 
     // }}}
