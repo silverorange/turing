@@ -12,6 +12,9 @@ use League\Uri\Exception as UriException;
 use Silverorange\Turing\Config\Defaults as ConfigDefaults;
 use Silverorange\Turing\Config\Environment as ConfigEnvironment;
 use Silverorange\Turing\Url\Normalizer;
+use Silverorange\Turing\WebDriver\HasElementTrait;
+use Silverorange\Turing\WebDriver\PseudoElementTrait;
+use Silverorange\Turing\WebDriver\ResizeTrait;
 
 /**
  * @package   Turing
@@ -20,6 +23,10 @@ use Silverorange\Turing\Url\Normalizer;
  */
 abstract class AbstractTest extends StewardAbstractTestCase
 {
+    use HasElementTrait;
+    use PseudoElementTrait;
+    use ResizeTrait;
+
     // {{{ protected properties
 
     /**
