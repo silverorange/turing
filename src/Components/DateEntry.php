@@ -57,7 +57,7 @@ class DateEntry extends AbstractComponent
         }
 
         if ($this->hasById($id . '_day')) {
-            (new WebDriverSelect($this->findById($field.'_day')))
+            (new WebDriverSelect($this->findById($id . '_day')))
                 ->selectByVisibleText($date->format('j'));
         }
     }
