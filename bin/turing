@@ -4,6 +4,7 @@
 namespace Silverorange\Turing;
 
 $dir = dirname($_SERVER['PHP_SELF']);
+$autoloaderInitialized = false;
 
 $autoloadPaths = [
     // Try to load autoloader if this is the root project.
@@ -24,8 +25,16 @@ foreach ($autoloadPaths as $type => $path) {
             define('STEWARD_BASE_DIR', realpath($dir . '/..'));
         }
 
+        $autoloaderInitialized = true;
         break;
     }
+}
+
+if (!$autoloaderInitialized) {
+  die(
+    'Unable to load project dependencies. Make sure you have run ' .
+    '"composer install".' . PHP_EOL . PHP_EOL
+  );
 }
 
 use Lmc\Steward\Console\EventListener\ListenerInstantiator;
