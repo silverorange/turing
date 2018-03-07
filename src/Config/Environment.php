@@ -32,7 +32,8 @@ abstract class Environment
 {
     public static function load(): void
     {
-        $rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        $dir = dirname($_SERVER['PHP_SELF']);
+        $rootPath = dirname(dirname($dir));
         $testsPath = $rootPath . '/tests';
 
         $dotenv = new Dotenv($testsPath);
