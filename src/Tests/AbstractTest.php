@@ -76,7 +76,8 @@ abstract class AbstractTest extends StewardAbstractTestCase
 
     protected function getProjectRoot()
     {
-        return dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        $dir = dirname($_SERVER['PHP_SELF']);
+        return dirname(dirname($dir));
     }
 
     // }}}

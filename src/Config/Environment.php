@@ -3,6 +3,7 @@
 namespace Silverorange\Turing\Config;
 
 use Dotenv\Dotenv;
+use Dotenv\Exception\InvalidPathException;
 
 /**
  * Valid environment variables for configuring Turing are:
@@ -32,11 +33,19 @@ abstract class Environment
 {
     public static function load(): void
     {
-        $rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        $dir = dirname($_SERVER['PHP_SELF']);
+        $rootPath = dirname(dirname($dir));
         $testsPath = $rootPath . '/tests';
 
         $dotenv = new Dotenv($testsPath);
-        $dotenv->load();
+
+        try {
+            $dotenv->load();
+        } catch (InvalidPathException $e) {
+            // phpdotenv requires the .env file to exist but we want it to be
+            // optional. Catch InvalidPathException that is thrown when the
+            // file does not exist in the directory.
+        }
 
         $dotenv->required('SELENIUM_URL')->notEmpty();
         $dotenv->required('SELENIUM_SERVER_URL')->notEmpty();
