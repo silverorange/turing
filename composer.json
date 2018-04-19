@@ -22,12 +22,7 @@
 	"repositories": [
 		{
 			"type": "composer",
-			"url": "https://composer",
-			"options": {
-				"ssl": {
-					"cafile": "/etc/nginx/tls.crt/composer.crt"
-				}
-			}
+			"url": "https://composer.silverorange.com"
 		},
 		{
 			"packagist": false
@@ -37,12 +32,12 @@
 		"php": ">=5.2.1",
 		"ext-mbstring": "*",
 		"phpunit/phpunit": "^5.7.0",
-		"silverorange/site": "^6.0.0",
-		"silverorange/swat": "^3.0.0",
+		"silverorange/site": "^6.0.0||^7.0.0",
+		"silverorange/swat": "^3.0.0||^4.0.0",
 		"lmc/steward": "^2.1.0"
 	},
 	"require-dev": {
-		"silverorange/coding-standard": "^0.6.0"
+		"silverorange/coding-standard": "^1.0.0"
 	},
 	"scripts": {
 		"lint": "./vendor/bin/phpcs",
