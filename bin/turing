@@ -4,25 +4,45 @@
 namespace Silverorange\Turing;
 
 $dir = dirname($_SERVER['PHP_SELF']);
+
+// If called from a relative path, add the current working dir to make it
+// absoute.
+if (strncmp('/', $dir, 1) !== 0) {
+    $dir = getcwd() . '/' . $dir;
+}
+
 $autoloaderInitialized = false;
 
 $autoloadPaths = [
-    // Try to load autoloader if this is the root project.
-    'root' => $dir . '/../vendor/autoload.php',
 
     // Try to load an autoloader if this is installed as a library for
-    // another root project.
-    'dependency' => $dir . '/../autoload.php',
+    // another root project and called from vendor bin.
+    'dependency_bin_dir' => dirname($dir) . '/autoload.php',
+
+    // Try to load an autoloader if this is installed as a library for
+    // another root project and called from package bin.
+    'dependency' => dirname(dirname(dirname($dir))) . '/autoload.php',
+
+    // Try to load autoloader if this is the root project. Check root last so
+    // if installed as a symlinked package dependency it does not match.
+    'root' => dirname($dir) . '/vendor/autoload.php',
 ];
 
 foreach ($autoloadPaths as $type => $path) {
     if (file_exists($path)) {
         require_once $path;
 
+        // Use dirname instead of .. so symlinks are resolved after relative
+        // paths instead of before relative paths.
         if ($type === 'dependency') {
-            define('STEWARD_BASE_DIR', realpath($dir . '/../../../..'));
+            define(
+                'STEWARD_BASE_DIR',
+                realpath(dirname(dirname(dirname(dirname($dir)))))
+            );
+        } elseif ($type === 'dependency_bin_dir') {
+            define('STEWARD_BASE_DIR', realpath(dirname(dirname($dir))));
         } else {
-            define('STEWARD_BASE_DIR', realpath($dir . '/..'));
+            define('STEWARD_BASE_DIR', realpath(dirname($dir)));
         }
 
         $autoloaderInitialized = true;
@@ -31,10 +51,10 @@ foreach ($autoloadPaths as $type => $path) {
 }
 
 if (!$autoloaderInitialized) {
-  die(
-    'Unable to load project dependencies. Make sure you have run ' .
-    '"composer install".' . PHP_EOL . PHP_EOL
-  );
+    die(
+        'Unable to load project dependencies. Make sure you have run ' .
+        '"composer install".' . PHP_EOL . PHP_EOL
+    );
 }
 
 use Lmc\Steward\Console\EventListener\ListenerInstantiator;
