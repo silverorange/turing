@@ -97,6 +97,7 @@ Available environment variables are:
  - **SELENIUM_MOBILE_WIDTH** - mobile browser width. 320 by default.
  - **SELENIUM_MOBILE_HEIGHT** - mobile browser height. 583 by default.
  - **STEWARD_LOGS_PATH** - Where test logs are stored. `tests/logs` by default.
+ - **STEWARD_TESTS_PATH** - Where Steward Selenium tests are located. `tests` by default.
 
 Turing can use a `.env` file to load configuration. The file `tests/.env` is
 used to set environment variables if it exists. In keeping with the principles
