@@ -8,7 +8,8 @@ use Dotenv\Exception\InvalidPathException;
 /**
  * Valid environment variables for configuring Turing are:
  *
- * - CONTENT_PATH           - where to load fixture data. tests/content by default.
+ * - CONTENT_PATH           - where to load fixture data. tests/content by
+ *                            default.
  *
  * - DATABASE_DSN           - PDO DSN for DB connection.
  *
@@ -23,10 +24,12 @@ use Dotenv\Exception\InvalidPathException;
  * - SELENIUM_MOBILE_WIDTH  - mobile browser width. 320 by default.
  * - SELENIUM_MOBILE_HEIGHT - mobile browser height. 583 by default.
  *
- * - STEWARD_LOGS_PATH     - Where test logs are stored. tests/logs by default.
+ * - STEWARD_LOGS_PATH      - Where test logs are stored. tests/logs by default.
+ * - STEWARD_TESTS_PATH     - Where Steward Selenium tests are located. tests
+ *                            by default.
  *
  * @package   Turing
- * @copyright 2017 silverorange
+ * @copyright 2017-2019 silverorange
  * @license   http://www.gnu.org/copyleft/lesser.html LGPL License 2.1
  */
 abstract class Environment

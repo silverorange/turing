@@ -34,12 +34,14 @@ class DefaultCommand extends Command
         $browser = getenv('SELENIUM_BROWSER') ?: 'chrome';
         $serverURL = getenv('SELENIUM_SERVER_URL') ?: 'http://localhost:4444';
         $logsDir = getenv('STEWARD_LOGS_PATH') ?: 'tests/logs';
+        $testsDir = getenv('STEWARD_TESTS_PATH') ?: 'tests';
 
         $arguments = [
             'environment' => 'test',
             'browser' => $browser,
             '--logs-dir' => $logsDir,
             '--server-url' => $serverURL,
+            '--tests-dir' => $testsDir,
         ];
 
         // Can't pass verbosity as argument to sub-command. It's tied to the
