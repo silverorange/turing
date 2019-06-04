@@ -116,8 +116,11 @@ trait ScreenshotTrait
     ) {
         // de-focus any selected elements
         $body = $this->findByTag('body');
+        $height = $body->getSize()->getHeight();
+        $x = 0;
+        $y = $height / 2;
         $action = new WebDriverActions($this->wd);
-        $action->moveToElement($body, 0, 0)->click()->perform();
+        $action->moveToElement($body, $x, $y)->click()->perform();
 
         $element = null;
 
