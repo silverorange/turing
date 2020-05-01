@@ -10,13 +10,11 @@ pipeline {
 
         stage('Lint Modified Files') {
             when {
-                not {
-                    branch 'master'
-                }
+                changeRequest()
             }
             steps {
                 sh '''
-                    master_sha=$(git rev-parse origin/master)
+                    master_sha=$(git rev-parse origin/$CHANGE_TARGET)
                     newest_sha=$(git rev-parse HEAD)
                     ./vendor/bin/phpcs \
                     --standard=SilverorangeTransitional \
@@ -31,7 +29,9 @@ pipeline {
 
         stage('Lint Entire Project') {
             when {
-                branch 'master'
+                not {
+                    changeRequest()
+                }
             }
             steps {
                 sh './vendor/bin/phpcs'
